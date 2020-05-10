@@ -8,7 +8,6 @@ var box1, pig1,pig3;
 var backgroundImg,platform;
 var bird, slingshot;
 
-
 function preload() {
     backgroundImg = loadImage("sprites/bg.png");
 }
@@ -18,26 +17,35 @@ function setup(){
     engine = Engine.create();
     world = engine.world;
 
-
     ground = new Ground(600,height,1200,20);
     platform = new Ground(150, 305, 300, 170);
 
-    box1 = new Box(700,320,70,70);
-    box2 = new Box(920,320,70,70);
+    box1 = new Pig(700,350);
+    box2 = new Pig(920,350);
     pig1 = new Pig(810, 350);
-    log1 = new Log(810,260,300, PI/2);
+    box3 = new Pig(700,350);
+    box4 = new Pig(920,350);
+    pig3 = new Pig(810, 350);
 
-    box3 = new Box(700,240,70,70);
-    box4 = new Box(920,240,70,70);
-    pig3 = new Pig(810, 220);
-
-    log3 =  new Log(810,180,300, PI/2);
-
-    box5 = new Box(810,160,70,70);
-    log4 = new Log(760,120,150, PI/7);
-    log5 = new Log(870,120,150, -PI/7);
-
+    box5 = new Pig(810,350);
+    
     bird = new Bird(200,50);
+
+    piggy1= new Pig(755,350);
+    piggy2= new Pig(755,350);
+
+    piggy3= new Pig(865,350);
+    piggy4= new Pig(865,350);
+
+    piggy11= new Pig(700,350);
+    piggy12= new Pig(755,350);
+    piggy13= new Pig(810,350);
+    piggy14= new Pig(865,350);
+    piggy15= new Pig(920,350);
+    piggy16= new Pig(755,350);
+    piggy17= new Pig(865,350);
+    
+    
 
     //log6 = new Log(230,180,80, PI/2);
     slingshot = new SlingShot(bird.body,{x:200, y:50});
@@ -51,16 +59,28 @@ function draw(){
     box2.display();
     ground.display();
     pig1.display();
-    log1.display();
+    
 
     box3.display();
     box4.display();
     pig3.display();
-    log3.display();
+ 
 
     box5.display();
-    log4.display();
-    log5.display();
+
+    piggy1.display();
+    piggy2.display();
+    piggy3.display();
+    piggy4.display();
+
+    piggy11.display();
+    piggy12.display();
+    piggy13.display();
+    piggy14.display();
+    piggy15.display();
+    piggy16.display();
+    piggy17.display();
+    
 
     bird.display();
     platform.display();
@@ -72,7 +92,6 @@ function mouseDragged(){
     Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
 }
 
-
 function mouseReleased(){
     slingshot.fly();
 }
@@ -82,3 +101,4 @@ function keyPressed(){
         slingshot.attach(bird.body);
     }
 }
+
